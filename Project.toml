@@ -1,0 +1,4 @@
+name = "ModelFitter"
+uuid = "7536733e-1dbb-4485-b5dc-c4fc24a8af4e"
+authors = ["Vojtech Kumpost <vojtech.kumpost@kit.edu>"]
+version = "0.1.0"

@@ -23,3 +23,23 @@ function integrate(fun, p, t1, t2; t_step=(t2-t1)/100)
     return AUC
 
 end
+
+
+"""
+`rmse`
+
+Estimate the root-mean-square error.
+
+**Arguments**
+- `x`: Array of values.
+- `y`: Array of values, the same size as `x`.
+
+**Returns**
+- `err`: Estiated error.
+"""
+function rmse(x, y)
+
+    err = sqrt(sum((x .- y) .^ 2) / length(x))
+    return err
+
+end

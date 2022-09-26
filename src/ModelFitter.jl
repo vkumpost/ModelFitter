@@ -11,6 +11,7 @@ Package for the fitting of simple population models.
 
 **Metrics**
 - `integrate`: Estimate the area under the curve.
+- `rmse`: Estimate the root-mean-square error.
 """
 module ModelFitter
 
@@ -22,7 +23,7 @@ include("function_library.jl")
 export plot_single_humped_function
 include("function_plotter.jl")
 
-export integrate
+export integrate, rmse
 include("metrics.jl")
 
 end # module

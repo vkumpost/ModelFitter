@@ -8,6 +8,9 @@ Package for the fitting of simple population models.
 
 **Function Plotter**
 - `plot_<function_name>`: Plot parameter effects for function `function_name`.
+
+**Metrics**
+- `integrate`: Estimate the area under the curve.
 """
 module ModelFitter
 
@@ -18,5 +21,8 @@ include("function_library.jl")
 
 export plot_single_humped_function
 include("function_plotter.jl")
+
+export integrate
+include("metrics.jl")
 
 end # module

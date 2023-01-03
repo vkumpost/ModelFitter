@@ -11,6 +11,7 @@ Package for the fitting of simple population models.
 
 **Input/Output**
 - `load_data`: Load data from a CSV file.
+- `load_long_data`: Load long data and convert them into the wide format.
 
 **Metrics**
 - `integrate`: Estimate the area under the curve.
@@ -28,7 +29,7 @@ include("function_library.jl")
 export plot_single_humped_function
 include("function_plotter.jl")
 
-export load_data
+export load_data, load_long_data
 include("input_output.jl")
 
 export integrate, rmse

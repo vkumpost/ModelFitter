@@ -23,3 +23,28 @@ function load_data(args...)
     return df
 
 end
+
+
+"""
+`load_long_data`
+
+Load data in the long representation from a CSV and convert them into the wide
+format.
+
+**Arguments**
+- `args...`: Filename or parts of the path to the file.
+
+**Keyword Arguments**
+- `colkey`: The name of the column storing column keys (see `DataFrames.unstack`).
+- `value`: The name of the column storing values (see `DataFrames.unstack`).
+
+**Returns**
+- `df_wide`: Data from the csv file as a DataFrame in the wide format.
+"""
+function load_long_data(args...; colkey="Month", value="rel.eng")
+
+    df_long = load_data(args...)
+    df_wide = unstack(df_long, colkey, value)
+    return df_wide
+
+end

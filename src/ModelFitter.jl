@@ -19,12 +19,17 @@ Package for the fitting of simple population models.
 
 **Parameter Fitting**
 - `find_first_nonzero`: Find index of the first nonzero element in an array.
+- `create_loss_function`: Create loss function for optimization.
 """
 module ModelFitter
 
 using DataFrames
 using DelimitedFiles
+using Interpolations
 using PyPlot
+
+import BlackBoxOptim
+import Optim
 
 export single_humped_function
 include("function_library.jl")
@@ -38,7 +43,7 @@ include("input_output.jl")
 export integrate, rmse
 include("metrics.jl")
 
-export find_first_nonzero
+export find_first_nonzero, create_loss_function
 include("parameter_fitting.jl")
 
 end # module

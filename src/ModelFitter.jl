@@ -16,6 +16,9 @@ Package for the fitting of simple population models.
 **Metrics**
 - `integrate`: Estimate the area under the curve.
 - `rmse`: Estimate the root-mean-square error.
+
+**Parameter Fitting**
+- `find_first_nonzero`: Find index of the first nonzero element in an array.
 """
 module ModelFitter
 
@@ -34,5 +37,8 @@ include("input_output.jl")
 
 export integrate, rmse
 include("metrics.jl")
+
+export find_first_nonzero
+include("parameter_fitting.jl")
 
 end # module

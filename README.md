@@ -3,11 +3,11 @@ A package for simple parameter fitting.
 
 ## Usage
 
-See the example script that demonstrates fitting of the single-humped function to the data: [data_fitting.jl](scripts/data_fitting.jl).
+See the [example script](scripts/data_fitting.jl) that demonstrates fitting of the single-humped function to the data.
 
 ## Input data
 
-The input data are considered to be in the long form as shown in [example_data.csv](data/example_data.csv). In this particular example, `Month` indicates the time vector and `rel.eng` data vector. The remaining columns are labels describing the individual members of the population. The data can be converted to the wide format by calling `load_long_data`.
+The input data are considered to be in the long form as shown in the [example data.](data/example_data.csv). In this particular example, `Month` indicates the time vector and `rel.eng` data vector. The remaining columns are labels describing the individual members of the population. The data can be converted to the wide format by calling `load_long_data`.
 
 ## Single-Humped Function
 
@@ -16,7 +16,7 @@ The single-humped function has form
     x(t) = 0, if i < τ,
     x(t) = R * (t - τ) / (1 + ((t - τ) / θ) ^ n), if >= τ,
 ```
-where `τ` is time delay, `R` growth rate, `θ` repression coefficient, and `n` Hill coefficient. The effects of the individual parameters on the final function are showed in the figure below.
+where `τ` is time delay, `R` growth rate, `θ` repression coefficient, and `n` Hill coefficient. The figure below shows the effects of the individual parameters on the final function.
 
 ![image](assets/function.png)
 

@@ -1,6 +1,15 @@
 # ModelFitter
 A package for simple parameter fitting.
 
+## Installation
+
+Open [Julia](https://julialang.org/) REPL in the project directory and run the following commands to instantiate the package environment with all necessary dependencies.
+```
+import Pkg
+Pkg.activate(".")
+Pkg.instantiate()
+```
+
 ## Usage
 
 See the [example script](scripts/data_fitting.jl) that demonstrates fitting of the single-humped function to the data.

@@ -20,6 +20,7 @@ Package for the fitting of simple population models.
 **Parameter Fitting**
 - `find_first_nonzero`: Find index of the first nonzero element in an array.
 - `create_loss_function`: Create loss function for optimization.
+- `fit_loss_function`: Fit loss function.
 """
 module ModelFitter
 
@@ -43,7 +44,7 @@ include("input_output.jl")
 export integrate, rmse
 include("metrics.jl")
 
-export find_first_nonzero, create_loss_function
+export find_first_nonzero, create_loss_function, fit_loss_function
 include("parameter_fitting.jl")
 
 end # module

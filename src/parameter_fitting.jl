@@ -51,14 +51,43 @@ function create_loss_function(t_data, x_data)
         t = t_data[.!isnan.(x_data)]
         interp_linear = linear_interpolation(t, x, extrapolation_bc=Flat())
 
+        # Calculate the distance between the function output and interpolated data
         tt = t_data[1]:0.1:t_data[end]
         xx = interp_linear(tt)
         yy = single_humped_function(tt, p)
+        err = sum((xx .- yy).^2) / length(t_data)
 
-        return sum((xx .- yy).^2) / length(t_data)
+        return err
 
     end
 
     return loss_function
+
+end
+
+
+"""
+`fit_loss_function`
+
+Fit loss function.
+
+**Arguments**
+- `loss_function`: Loss function (see `create_loss_function`).
+- `search_range`: Vector of tuples indicating search range for individual parameters. 
+
+**Returns**
+- `p`: Vector of estimated parameters.
+"""
+function fit_loss_function(loss_function, search_range)
+
+    result = BlackBoxOptim.bboptimize(
+        loss_function;
+        SearchRange = search_range,
+        PopulationSize = 50,
+        MaxSteps = 100_000,
+        TraceMode = :verbose  # :verbose, :silent
+    )
+    p = BlackBoxOptim.best_candidate(result)
+    return p
 
 end

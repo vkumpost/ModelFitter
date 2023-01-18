@@ -48,3 +48,42 @@ function load_long_data(args...; colkey="Month", value="rel.eng")
     return df_wide
 
 end
+
+
+"""
+`save_data`
+
+Save a DataFrame as a csv file.
+
+**Arguments**
+- `df`: DataFrame.
+- `args...`: Filename or parts of the path to the file.
+
+**Keyword Arguments**
+- `overwrite`: If `false`, the function throws an error if the file already exists.
+"""
+function save_data(df::DataFrame, args...; overwrite=false)
+
+    # Build a path starting with "data" and continuig based on the passed args
+    filename = joinpath(args...)
+    
+    # If a file with the same name already exists, throw an error
+    if !overwrite && isfile(filename)
+        error("File already exists!")
+    end
+
+    # Create all subdirecotires that do not yet exist
+    dir, _ = splitdir(filename)
+    if !isdir(dir)
+        mkpath(dir)
+    end
+
+    # Write the dataframe into the csv file
+    matrix = Matrix(df)
+    head = names(df)
+    csv_content = [reshape(head, 1, length(head)); matrix]
+    open(filename, "w") do io
+        writedlm(io, csv_content, ',')
+    end
+    
+end

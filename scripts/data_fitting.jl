@@ -71,6 +71,8 @@ for i_data = 1:N_data
         N=$(df_results[i_data, 17])", loc="left")
     ax.set_xlabel("Time")
     ax.set_ylabel("Rel. eng.")
-    # fig.savefig("assets/$i_data.png")
+    fig.savefig("assets/$i_data.png")
 
 end
+
+save_data(df_results, "data/fitting_results.csv"; overwrite=true)

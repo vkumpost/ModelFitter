@@ -10,6 +10,8 @@ Pkg.activate(".")
 Pkg.instantiate()
 ```
 
+The installation commands are also included in the [installation script](scripts/installation.jl).
+
 ## Usage
 
 See the [example script](scripts/data_fitting.jl) that demonstrates fitting of the single-humped function to the data.

@@ -20,7 +20,7 @@ for i_data = 1:N_data
     # the search range for the time delay depends on the first nonzero element in x
     t1 = 0
     t2 = t[find_first_nonzero(x)]
-    search_range = [(0.0, 0.5), (0.0, 20.0), (0.0, 20.0), (t1, t2)]  # R, θ, n, τ_start
+    search_range = [(0.0, 0.5), (0.0, 20.0), (0.0, 1.0), (t1, t2)]  # R, θ, n, τ_start
 
     # Fit the model parameters
     p = fit_loss_function(loss_function, search_range)
